@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-enum UserService<E: EnvironmentType> {
+enum UserService {
     case getUser(id: Int)
     case getUserBy(username: String)
     case getUserRepos(username: String)
@@ -18,7 +18,7 @@ enum UserService<E: EnvironmentType> {
 extension UserService: TargetType {
 
     var baseURL: URL {
-        return E.baseUrl.appendingPathComponent("users")
+        return AppConfig.baseURL.appendingPathComponent("users")
     }
 
     var path: String {
@@ -45,6 +45,6 @@ extension UserService: TargetType {
     }
 
     var headers: [String : String]? {
-        return E.baseHeaders
+        return AppConfig.baseHeaders
     }
 }

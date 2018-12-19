@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Initializers
 
     func configureAPI() {
-        _ = API.shared
+        AppConfig.configure()
     }
 
     func initTools() {

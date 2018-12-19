@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-enum RepositoryService<E: EnvironmentType> {
+enum RepositoryService {
     case getRepository(id: Int)
     case searchRepositories(term: String, page: Int, limit: Int)
 }
@@ -19,10 +19,10 @@ extension RepositoryService: TargetType {
     var baseURL: URL {
         switch self {
         case .searchRepositories:
-            return E.baseUrl.appendingPathComponent("search").appendingPathComponent("repositories")
+            return AppConfig.baseURL.appendingPathComponent("search").appendingPathComponent("repositories")
 
         default:
-            return E.baseUrl.appendingPathComponent("repositories")
+            return AppConfig.baseURL.appendingPathComponent("repositories")
         }
     }
 
@@ -54,6 +54,6 @@ extension RepositoryService: TargetType {
     }
 
     var headers: [String : String]? {
-        return E.baseHeaders
+        return AppConfig.baseHeaders
     }
 }
