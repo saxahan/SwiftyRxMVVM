@@ -3,6 +3,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
+    pod 'SwiftLint'
 	pod 'Moya'
     pod 'SnapKit'
 
