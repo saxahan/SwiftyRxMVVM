@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        configureAPI()
+        configureAPI(application, launchOptions: launchOptions)
 
         return true
     }
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: Initializers
 
-    func configureAPI() {
+    func configureAPI(_ application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         AppConfig.configure()
     }
 

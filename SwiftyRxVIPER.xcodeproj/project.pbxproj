@@ -54,6 +54,22 @@
 		B6844F3221CAD276007472E7 /* Config-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F3121CAD276007472E7 /* Config-Release.plist */; };
 		B6844F3321CAD276007472E7 /* Config-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F3121CAD276007472E7 /* Config-Release.plist */; };
 		B6F3B60621CC25CC000AB968 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B60521CC25CC000AB968 /* UserSpec.swift */; };
+		B6F3B61121CC322F000AB968 /* TitlableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61021CC322F000AB968 /* TitlableView.swift */; };
+		B6F3B61221CC322F000AB968 /* TitlableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61021CC322F000AB968 /* TitlableView.swift */; };
+		B6F3B61421CC329B000AB968 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61321CC329B000AB968 /* Identifiable.swift */; };
+		B6F3B61521CC329B000AB968 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61321CC329B000AB968 /* Identifiable.swift */; };
+		B6F3B61721CC32BE000AB968 /* DismissModalNavigating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61621CC32BE000AB968 /* DismissModalNavigating.swift */; };
+		B6F3B61821CC32BE000AB968 /* DismissModalNavigating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61621CC32BE000AB968 /* DismissModalNavigating.swift */; };
+		B6F3B61B21CC3304000AB968 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61A21CC3304000AB968 /* Navigator.swift */; };
+		B6F3B61C21CC3304000AB968 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61A21CC3304000AB968 /* Navigator.swift */; };
+		B6F3B61E21CC332B000AB968 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61D21CC332B000AB968 /* Presenter.swift */; };
+		B6F3B61F21CC332B000AB968 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61D21CC332B000AB968 /* Presenter.swift */; };
+		B6F3B62121CC333A000AB968 /* NavigablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B62021CC333A000AB968 /* NavigablePresenter.swift */; };
+		B6F3B62221CC333A000AB968 /* NavigablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B62021CC333A000AB968 /* NavigablePresenter.swift */; };
+		B6F3B62B21CC3773000AB968 /* RepositoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B62A21CC3773000AB968 /* RepositoryListInteractor.swift */; };
+		B6F3B62C21CC3773000AB968 /* RepositoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B62A21CC3773000AB968 /* RepositoryListInteractor.swift */; };
+		B6F3B62E21CC3C6D000AB968 /* RepositoryListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B62D21CC3C6D000AB968 /* RepositoryListRouter.swift */; };
+		B6F3B62F21CC3C6F000AB968 /* RepositoryListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B62D21CC3C6D000AB968 /* RepositoryListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +117,14 @@
 		B6844F2E21CAD26E007472E7 /* Config-Staging.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config-Staging.plist"; sourceTree = "<group>"; };
 		B6844F3121CAD276007472E7 /* Config-Release.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config-Release.plist"; sourceTree = "<group>"; };
 		B6F3B60521CC25CC000AB968 /* UserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
+		B6F3B61021CC322F000AB968 /* TitlableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlableView.swift; sourceTree = "<group>"; };
+		B6F3B61321CC329B000AB968 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		B6F3B61621CC32BE000AB968 /* DismissModalNavigating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissModalNavigating.swift; sourceTree = "<group>"; };
+		B6F3B61A21CC3304000AB968 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		B6F3B61D21CC332B000AB968 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		B6F3B62021CC333A000AB968 /* NavigablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigablePresenter.swift; sourceTree = "<group>"; };
+		B6F3B62A21CC3773000AB968 /* RepositoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListInteractor.swift; sourceTree = "<group>"; };
+		B6F3B62D21CC3C6D000AB968 /* RepositoryListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListRouter.swift; sourceTree = "<group>"; };
 		D6A7D34E176EE1BC5685DEB8 /* libPods-SwiftyRxVIPER.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftyRxVIPER.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D0CBE5139AB9E9ECF7428C /* Pods-SwiftyRxVIPERTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyRxVIPERTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyRxVIPERTests/Pods-SwiftyRxVIPERTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E72C781E353C6358B890BF63 /* Pods-SwiftyRxVIPER-SwiftyRxVIPERTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyRxVIPER-SwiftyRxVIPERTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyRxVIPER-SwiftyRxVIPERTests/Pods-SwiftyRxVIPER-SwiftyRxVIPERTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +277,7 @@
 		B6844F0B21CAC8EC007472E7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B6F3B61921CC32F4000AB968 /* Common */,
 				B6844F0C21CAC8EC007472E7 /* Repository */,
 				B6844F0D21CAC8EC007472E7 /* User */,
 			);
@@ -262,6 +287,8 @@
 		B6844F0C21CAC8EC007472E7 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B6F3B62621CC345F000AB968 /* RepositoryDetail */,
+				B6F3B60821CC3085000AB968 /* RepositoryList */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -276,6 +303,7 @@
 		B6844F2621CAD007007472E7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B6F3B60F21CC3210000AB968 /* Common */,
 				B6844F2721CAD01E007472E7 /* Config */,
 			);
 			path = Helpers;
@@ -290,6 +318,42 @@
 				B6844F2E21CAD26E007472E7 /* Config-Staging.plist */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		B6F3B60821CC3085000AB968 /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+				B6F3B62A21CC3773000AB968 /* RepositoryListInteractor.swift */,
+				B6F3B62D21CC3C6D000AB968 /* RepositoryListRouter.swift */,
+			);
+			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		B6F3B60F21CC3210000AB968 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B6F3B61021CC322F000AB968 /* TitlableView.swift */,
+				B6F3B61321CC329B000AB968 /* Identifiable.swift */,
+				B6F3B61621CC32BE000AB968 /* DismissModalNavigating.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B6F3B61921CC32F4000AB968 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B6F3B61A21CC3304000AB968 /* Navigator.swift */,
+				B6F3B61D21CC332B000AB968 /* Presenter.swift */,
+				B6F3B62021CC333A000AB968 /* NavigablePresenter.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B6F3B62621CC345F000AB968 /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
 		C4B43362C6F5D2B6F2C1556B /* Frameworks */ = {
@@ -576,14 +640,22 @@
 			files = (
 				B67F1BA221C93C04002A7538 /* ViewController.swift in Sources */,
 				B6533FE421CB90D000463799 /* R.generated.swift in Sources */,
+				B6F3B61E21CC332B000AB968 /* Presenter.swift in Sources */,
 				B6844F2921CAD02B007472E7 /* AppConfig.swift in Sources */,
 				B6533FE821CBAB4700463799 /* Repository.swift in Sources */,
+				B6F3B62B21CC3773000AB968 /* RepositoryListInteractor.swift in Sources */,
+				B6F3B61B21CC3304000AB968 /* Navigator.swift in Sources */,
 				B67F1BA021C93C04002A7538 /* AppDelegate.swift in Sources */,
 				B64D783321CBCBD4007F11F2 /* RepositoryList.swift in Sources */,
+				B6F3B61121CC322F000AB968 /* TitlableView.swift in Sources */,
 				B6533FEE21CBAF2600463799 /* User.swift in Sources */,
 				B62097FF21CA761D00985C6A /* UserService.swift in Sources */,
+				B6F3B61421CC329B000AB968 /* Identifiable.swift in Sources */,
 				B62097FD21CA6E8F00985C6A /* RepositoryService.swift in Sources */,
 				B62097EE21CA5F1600985C6A /* API.swift in Sources */,
+				B6F3B62121CC333A000AB968 /* NavigablePresenter.swift in Sources */,
+				B6F3B62E21CC3C6D000AB968 /* RepositoryListRouter.swift in Sources */,
+				B6F3B61721CC32BE000AB968 /* DismissModalNavigating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,14 +674,22 @@
 			files = (
 				B6844F1121CAC968007472E7 /* ViewController.swift in Sources */,
 				B6533FE521CB90D000463799 /* R.generated.swift in Sources */,
+				B6F3B61F21CC332B000AB968 /* Presenter.swift in Sources */,
 				B6844F2A21CAD02B007472E7 /* AppConfig.swift in Sources */,
 				B6533FE921CBAB4700463799 /* Repository.swift in Sources */,
+				B6F3B62C21CC3773000AB968 /* RepositoryListInteractor.swift in Sources */,
+				B6F3B61C21CC3304000AB968 /* Navigator.swift in Sources */,
 				B6844F1421CAC968007472E7 /* AppDelegate.swift in Sources */,
 				B64D783421CBCBD4007F11F2 /* RepositoryList.swift in Sources */,
+				B6F3B61221CC322F000AB968 /* TitlableView.swift in Sources */,
 				B6533FEF21CBAF2600463799 /* User.swift in Sources */,
 				B6844F1621CAC968007472E7 /* UserService.swift in Sources */,
+				B6F3B61521CC329B000AB968 /* Identifiable.swift in Sources */,
 				B6844F1721CAC968007472E7 /* RepositoryService.swift in Sources */,
 				B6844F1921CAC968007472E7 /* API.swift in Sources */,
+				B6F3B62221CC333A000AB968 /* NavigablePresenter.swift in Sources */,
+				B6F3B62F21CC3C6F000AB968 /* RepositoryListRouter.swift in Sources */,
+				B6F3B61821CC32BE000AB968 /* DismissModalNavigating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

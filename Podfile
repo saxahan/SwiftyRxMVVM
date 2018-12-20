@@ -6,6 +6,7 @@ inhibit_all_warnings!
 def shared_pods
     pod 'SwiftLint'
 	pod 'Moya'
+    pod 'Moya/RxSwift'
     pod 'SnapKit'
 
     pod 'RxSwift'
