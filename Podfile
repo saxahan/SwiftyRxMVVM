@@ -9,6 +9,8 @@ def shared_pods
 
     pod 'RxSwift'
     pod 'RxCocoa'
+
+    pod 'R.swift'
 end
 
 target 'SwiftyRxVIPER' do
@@ -17,4 +19,6 @@ end
 
 target 'SwiftyRxVIPERTests' do
   shared_pods
+  pod 'Quick'
+  pod 'Nimble'
 end

@@ -41,7 +41,12 @@ extension RepositoryService: TargetType {
     }
 
     var sampleData: Data {
-        return Data()
+        switch self {
+        case .searchRepositories:
+            return try! Data(resource: R.file.searchRepositories200ResJson)
+        case .getRepository:
+            return try! Data(resource: R.file.getRepository200ResJson)
+        }
     }
 
     var task: Task {

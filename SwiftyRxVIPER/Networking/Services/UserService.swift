@@ -37,7 +37,12 @@ extension UserService: TargetType {
     }
 
     var sampleData: Data {
-        return Data()
+        switch self {
+        case .getUser, .getUserBy:
+            return try! Data(resource: R.file.getUser200ResJson)
+        case .getUserRepos:
+            return try! Data(resource: R.file.getUserRepos200ResJson)
+        }
     }
 
     var task: Task {
