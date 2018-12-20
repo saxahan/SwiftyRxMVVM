@@ -32,23 +32,28 @@ final class AppConfig {
     
     static var baseURL: URL!
     static var isDebug: Bool = false
+    static var isDevelop: Bool = false
     static var isStaging: Bool = false
     static var isRelease: Bool = false
     
     static func configure() {
-        #if STAGING
+        #if DEBUG
+            isDebug = true
+        #endif
+
+        #if DEVELOP
+            isDevelop = true
+        #elseif STAGING
             isStaging = true
         #elseif RELEASE
             isRelease = true
-        #else
-            isDebug = true
         #endif
         
         loadFromConfigFile()
     }
     
     private static func loadFromConfigFile() {
-        var fileName: String
+        var fileName: String = "Config-Develop"
         
         if isStaging {
             fileName = "Config-Staging"
@@ -56,8 +61,8 @@ final class AppConfig {
         else if isRelease {
             fileName = "Config-Release"
         }
-        else {
-            fileName = "Config-Debug"
+        else if isDevelop {
+            fileName = "Config-Develop"
         }
         
         guard let path = Bundle.main.path(forResource: fileName, ofType: "plist"), let config = NSDictionary(contentsOfFile: path) as? [String: Any] else {

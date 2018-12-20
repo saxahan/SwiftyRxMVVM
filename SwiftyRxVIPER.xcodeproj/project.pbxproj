@@ -47,8 +47,8 @@
 		B6844F1E21CAC968007472E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67F1BA621C93C06002A7538 /* Assets.xcassets */; };
 		B6844F2921CAD02B007472E7 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6844F2821CAD02B007472E7 /* AppConfig.swift */; };
 		B6844F2A21CAD02B007472E7 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6844F2821CAD02B007472E7 /* AppConfig.swift */; };
-		B6844F2C21CAD22C007472E7 /* Config-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F2B21CAD22C007472E7 /* Config-Debug.plist */; };
-		B6844F2D21CAD22C007472E7 /* Config-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F2B21CAD22C007472E7 /* Config-Debug.plist */; };
+		B6844F2C21CAD22C007472E7 /* Config-Develop.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F2B21CAD22C007472E7 /* Config-Develop.plist */; };
+		B6844F2D21CAD22C007472E7 /* Config-Develop.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F2B21CAD22C007472E7 /* Config-Develop.plist */; };
 		B6844F2F21CAD26E007472E7 /* Config-Staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F2E21CAD26E007472E7 /* Config-Staging.plist */; };
 		B6844F3021CAD26E007472E7 /* Config-Staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F2E21CAD26E007472E7 /* Config-Staging.plist */; };
 		B6844F3221CAD276007472E7 /* Config-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6844F3121CAD276007472E7 /* Config-Release.plist */; };
@@ -97,7 +97,7 @@
 		B67F1BB621C93C06002A7538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6844F2421CAC968007472E7 /* SwiftyRxVIPER-Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftyRxVIPER-Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6844F2821CAD02B007472E7 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		B6844F2B21CAD22C007472E7 /* Config-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config-Debug.plist"; sourceTree = "<group>"; };
+		B6844F2B21CAD22C007472E7 /* Config-Develop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config-Develop.plist"; sourceTree = "<group>"; };
 		B6844F2E21CAD26E007472E7 /* Config-Staging.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config-Staging.plist"; sourceTree = "<group>"; };
 		B6844F3121CAD276007472E7 /* Config-Release.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config-Release.plist"; sourceTree = "<group>"; };
 		B6F3B60521CC25CC000AB968 /* UserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
@@ -167,9 +167,9 @@
 		B62097E921CA5A8700985C6A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B6533FE621CBAAAE00463799 /* Models */,
 				B62097ED21CA5F1600985C6A /* API.swift */,
 				B6533FD121CB866B00463799 /* Mocks */,
+				B6533FE621CBAAAE00463799 /* Models */,
 				B620980021CA77BF00985C6A /* Services */,
 			);
 			path = Networking;
@@ -285,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				B6844F2821CAD02B007472E7 /* AppConfig.swift */,
-				B6844F2B21CAD22C007472E7 /* Config-Debug.plist */,
+				B6844F2B21CAD22C007472E7 /* Config-Develop.plist */,
 				B6844F3121CAD276007472E7 /* Config-Release.plist */,
 				B6844F2E21CAD26E007472E7 /* Config-Staging.plist */,
 			);
@@ -409,7 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6533FCF21CB7BFA00463799 /* Staging-Info.plist in Resources */,
-				B6844F2C21CAD22C007472E7 /* Config-Debug.plist in Resources */,
+				B6844F2C21CAD22C007472E7 /* Config-Develop.plist in Resources */,
 				B6533FD321CB873500463799 /* search-repositories-200-res.json in Resources */,
 				B67F1BAA21C93C06002A7538 /* LaunchScreen.storyboard in Resources */,
 				B6844F2F21CAD26E007472E7 /* Config-Staging.plist in Resources */,
@@ -433,7 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6533FD021CB7BFA00463799 /* Staging-Info.plist in Resources */,
-				B6844F2D21CAD22C007472E7 /* Config-Debug.plist in Resources */,
+				B6844F2D21CAD22C007472E7 /* Config-Develop.plist in Resources */,
 				B6533FD421CB873500463799 /* search-repositories-200-res.json in Resources */,
 				B6844F1D21CAC968007472E7 /* LaunchScreen.storyboard in Resources */,
 				B6844F3021CAD26E007472E7 /* Config-Staging.plist in Resources */,
@@ -764,7 +764,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DPRODUCTION";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunusalkan.SwiftyRxVIPER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -786,7 +786,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DPRODUCTION";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunusalkan.SwiftyRxVIPER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
