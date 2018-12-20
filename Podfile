@@ -17,12 +17,14 @@ end
 target 'SwiftyRxVIPER' do
   shared_pods
 
-  target :'SwiftyRxVIPERTests' do
-#      inherit! :search_paths
-
+  target 'SwiftyRxVIPERTests' do
       pod 'Quick'
       pod 'Nimble'
   end
+end
+
+target 'SwiftyRxVIPER-Staging' do
+  shared_pods
 end
 
 

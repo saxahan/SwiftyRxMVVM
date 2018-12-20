@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import Moya
 
 final class API {
-    static var baseHeaders: [String: String] {
-        return ["Content-Type": "application/json"]
-    }
+    static let userProvider: MoyaProvider<UserService> = {
+        return MoyaProvider<UserService>(plugins: AppConfig.isDebug ? [NetworkLoggerPlugin(verbose: true)] : [])
+    }()
+
+    static let repositoryProvider: MoyaProvider<RepositoryService> = {
+        return MoyaProvider<RepositoryService>(plugins: AppConfig.isDebug ? [NetworkLoggerPlugin(verbose: true)] : [])
+    }()
 }

@@ -42,7 +42,11 @@ extension RepositoryService: TargetType {
 
     var sampleData: Data {
         switch self {
-        case .searchRepositories:
+        case .searchRepositories(let term, _, _):
+            if term.isEmpty {
+                return Data()
+            }
+
             return try! Data(resource: R.file.searchRepositories200ResJson)
         case .getRepository:
             return try! Data(resource: R.file.getRepository200ResJson)

@@ -40,7 +40,11 @@ extension UserService: TargetType {
         switch self {
         case .getUser, .getUserBy:
             return try! Data(resource: R.file.getUser200ResJson)
-        case .getUserRepos:
+        case .getUserRepos(let username):
+            if username.isEmpty {
+                return Data()
+            }
+            
             return try! Data(resource: R.file.getUserRepos200ResJson)
         }
     }

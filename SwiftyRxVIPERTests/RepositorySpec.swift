@@ -15,43 +15,18 @@ import Quick
 
 class RepositorySpec: QuickSpec {
 
-    let searchTimeout: TimeInterval = 20
-
     override func spec() {
         var provider: MoyaProvider<RepositoryService>!
         var repositoryList: RepositoryList!
+        var repository: Repository!
 
         beforeEach {
-            // If we want to use sync testing, we should use sampleData of Maya
-            // for instance -> MoyaProvider<RepositoryService>(stubClosure: MoyaProvider.immediatelyStub)
-            // But I want to search on real data on github.
-            provider = MoyaProvider<RepositoryService>(plugins: [NetworkLoggerPlugin(verbose: true)])
+            // We should use sampleData.
+            // However; if we want to do async, we can use OHHTTPStubs for demonstrating, or waitUntil might be helpful.
+            provider = API.repositoryProvider
         }
 
-        // Async real data
-        it("should search through repositories and should return paginated repository list") {
-            let target = RepositoryService.searchRepositories
-
-            waitUntil(timeout: self.searchTimeout, action: { done in
-                provider.request(target("swift", 1, 20)) { result in
-                    switch result {
-                    case .failure(let error):
-                        debugPrint(error.localizedDescription)
-
-                    case .success(let response):
-                        repositoryList = try? response.map(RepositoryList.self)
-                        debugPrint(repositoryList)
-                    }
-
-                    expect(repositoryList).notTo(beNil())
-                }
-            })
-        }
-
-
-        /* Sync Sample data test
-        it("should search through repositories and should return paginated repository list") {
-            provider = MoyaProvider<RepositoryService>(stubClosure: MoyaProvider.immediatelyStub, plugins: [NetworkLoggerPlugin(verbose: true)])
+        it("shouldn't has empty items array") {
             let target = RepositoryService.searchRepositories
 
             provider.request(target("swift", 1, 20)) { result in
@@ -61,13 +36,42 @@ class RepositorySpec: QuickSpec {
 
                 case .success(let response):
                     repositoryList = try? response.map(RepositoryList.self)
-                    debugPrint(repositoryList)
                 }
 
-                expect(repositoryList).notTo(beNil())
+                expect(repositoryList.items).notTo(beEmpty())
             }
         }
-        */
 
+        it("should has nil because no given term") {
+            let target = RepositoryService.searchRepositories
+
+            provider.request(target("", 1, 20)) { result in
+                switch result {
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+
+                case .success(let response):
+                    repositoryList = try? response.map(RepositoryList.self)
+                }
+
+                expect(repositoryList).to(beNil())
+            }
+        }
+
+        it("should get repository detail") {
+            let target = RepositoryService.getRepository
+
+            provider.request(target(5)) { result in
+                switch result {
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+
+                case .success(let response):
+                    repository = try? response.map(Repository.self)
+                }
+
+                expect(repository).notTo(beNil())
+            }
+        }
     }
 }
