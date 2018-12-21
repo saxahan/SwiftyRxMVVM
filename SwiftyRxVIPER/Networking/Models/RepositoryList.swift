@@ -19,6 +19,12 @@ struct RepositoryList: Decodable {
         case totalCount = "total_count", incompleteResults = "incomplete_results", items
     }
 
+    init() {
+        self.totalCount = 0
+        self.incompleteResults = false
+        self.items = []
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.totalCount = try container.decode(Int.self, forKey: .totalCount)

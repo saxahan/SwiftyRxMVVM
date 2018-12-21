@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         configureAPI(application, launchOptions: launchOptions)
 
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = RepositoryListRouter().createRepositoryListModule()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

@@ -17,8 +17,14 @@ PODS:
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
   - SnapKit (4.2.0)
   - SwiftLint (0.29.1)
 
@@ -29,7 +35,9 @@ DEPENDENCIES:
   - Quick
   - R.swift
   - RxCocoa
+  - RxOptional
   - RxSwift
+  - SDWebImage
   - SnapKit
   - SwiftLint
 
@@ -44,7 +52,9 @@ SPEC REPOS:
     - Result
     - RxAtomic
     - RxCocoa
+    - RxOptional
     - RxSwift
+    - SDWebImage
     - SnapKit
     - SwiftLint
 
@@ -58,10 +68,12 @@ SPEC CHECKSUMS:
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
 
-PODFILE CHECKSUM: 5f716a170cf418136fec90755e88d794a788fd13
+PODFILE CHECKSUM: 43f0da46dcaa1ac588a8597f7f5114b5fc29cb2f
 
 COCOAPODS: 1.5.3

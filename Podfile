@@ -8,9 +8,11 @@ def shared_pods
 	pod 'Moya'
     pod 'Moya/RxSwift'
     pod 'SnapKit'
+    pod 'SDWebImage'
 
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'RxOptional'
 
     pod 'R.swift'
 end

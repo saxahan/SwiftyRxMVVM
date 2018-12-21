@@ -18,8 +18,8 @@ struct R: Rswift.Validatable {
   
   /// This `R.file` struct is generated, and contains static references to 8 files.
   struct file {
-    /// Resource file `Config-Debug.plist`.
-    static let configDebugPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "Config-Debug", pathExtension: "plist")
+    /// Resource file `Config-Develop.plist`.
+    static let configDevelopPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "Config-Develop", pathExtension: "plist")
     /// Resource file `Config-Release.plist`.
     static let configReleasePlist = Rswift.FileResource(bundle: R.hostingBundle, name: "Config-Release", pathExtension: "plist")
     /// Resource file `Config-Staging.plist`.
@@ -35,9 +35,9 @@ struct R: Rswift.Validatable {
     /// Resource file `search-repositories-200-res.json`.
     static let searchRepositories200ResJson = Rswift.FileResource(bundle: R.hostingBundle, name: "search-repositories-200-res", pathExtension: "json")
     
-    /// `bundle.url(forResource: "Config-Debug", withExtension: "plist")`
-    static func configDebugPlist(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.configDebugPlist
+    /// `bundle.url(forResource: "Config-Develop", withExtension: "plist")`
+    static func configDevelopPlist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.configDevelopPlist
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -86,14 +86,60 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `avatar-placeholder`.
+    static let avatarPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "avatar-placeholder")
+    
+    /// `UIImage(named: "avatar-placeholder", bundle: ..., traitCollection: ...)`
+    static func avatarPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.avatarPlaceholder, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `RepositorySearchTableViewCell`.
+    static let repositorySearchTableViewCell = _R.nib._RepositorySearchTableViewCell()
+    
+    /// `UINib(name: "RepositorySearchTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.repositorySearchTableViewCell) instead")
+    static func repositorySearchTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.repositorySearchTableViewCell)
+    }
+    
+    static func repositorySearchTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositorySearchTableViewCell? {
+      return R.nib.repositorySearchTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositorySearchTableViewCell
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `RepositorySearchTableViewCell`.
+    static let repositorySearchTableViewCell: Rswift.ReuseIdentifier<RepositorySearchTableViewCell> = Rswift.ReuseIdentifier(identifier: "RepositorySearchTableViewCell")
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Repository`.
+    static let repository = _R.storyboard.repository()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    
+    /// `UIStoryboard(name: "Repository", bundle: ...)`
+    static func repository(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.repository)
     }
     
     fileprivate init() {}
@@ -117,9 +163,25 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
   }
   
+  struct nib {
+    struct _RepositorySearchTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "RepositorySearchTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositorySearchTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositorySearchTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try launchScreen.validate()
+      try repository.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -131,6 +193,26 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, *) {
         }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct repository: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "Repository"
+      let repositorySearchViewController = StoryboardViewControllerResource<RepositorySearchViewController>(identifier: "RepositorySearchViewController")
+      
+      func repositorySearchViewController(_: Void = ()) -> RepositorySearchViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: repositorySearchViewController)
+      }
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+        if _R.storyboard.repository().repositorySearchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'repositorySearchViewController' could not be loaded from storyboard 'Repository' as 'RepositorySearchViewController'.") }
       }
       
       fileprivate init() {}
