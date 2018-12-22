@@ -12,7 +12,7 @@ import Foundation
 
 struct Repository: Decodable {
     var id: Int
-    var name: String?
+    var name: String
     var fullName: String?
     var forksCount: Int = 0
     var openIssuesCount: Int = 0
@@ -29,7 +29,7 @@ struct Repository: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
-        self.name = try container.decodeIfPresent(String.self, forKey: .name)
+        self.name = try container.decode(String.self, forKey: .name)
         self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName)
         self.forksCount = try container.decode(Int.self, forKey: .forksCount)
         self.openIssuesCount = try container.decode(Int.self, forKey: .openIssuesCount)

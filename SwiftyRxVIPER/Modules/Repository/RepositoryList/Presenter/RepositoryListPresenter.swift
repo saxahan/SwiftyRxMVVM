@@ -11,21 +11,19 @@ import RxSwift
 
 class RepositoryListPresenter: ViewToPresenterRepositoryListProtocol {
     var view: PresenterToViewRepositoryListProtocol?
-
     var interactor: PresenterToInteractorRepositoryListProtocol?
-
     var router: PresenterToRouterRepositoryListProtocol?
 
-    func startSearchingRepositories(query: String, page: Int, limit: Int) {
-        interactor?.searchRepository(query: query, page: page, limit: limit)
+    func startSearchingRepositories(query: String, page: Int, limit: Int, isPagination: Bool) {
+        interactor?.searchRepository(query: query, page: page, limit: limit, isPagination: isPagination)
     }
 }
 
 extension RepositoryListPresenter: InteractorToPresenterRepositoryListProtocol {
-    func searchRepositorySuccess(repositoryList: Observable<RepositoryList>) {
-        view?.onSearchRepositorySuccess(repositoryList: repositoryList)
+    func searchRepositorySuccess(repositoryList: RepositoryList, isPagination: Bool) {
+        view?.onSearchRepositorySuccess(repositoryList: repositoryList, isPagination: isPagination)
     }
-    
+
     func searchRepositoryFailed(error: Error) {
         view?.onSearchRepositoryFailed(error: error)
     }

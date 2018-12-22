@@ -21,45 +21,64 @@ class RepositorySearchViewController: UIViewController {
 
     let disposeBag = DisposeBag()
 
-    var repositoryList: RepositoryList!
+    var repositories: RepositoryList!
     var page = 1
     var limit = 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableViewRx()
+        setupSearchRx()
+    }
 
+    func setupTableViewRx() {
         tableView.keyboardDismissMode = .onDrag
-        tableView.estimatedRowHeight = 90
+        tableView.estimatedRowHeight = 110
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(resource: R.nib.repositorySearchTableViewCell), forCellReuseIdentifier: RepositorySearchTableViewCell.identifier)
-        
-        setupSearchRx()
+
+
+        tableView.rx.contentOffset.subscribe { [unowned self] _ in
+            if self.tableView.isNearBottomEdge() {
+                let query = self.searchBar.text ?? ""
+                if !query.isEmpty {
+                    self.page += 1
+                    self.presenter?.startSearchingRepositories(query: query, page: self.page, limit: self.limit, isPagination: true)
+//                    self.presenter?.fetchNextRepositories(query: query, page: self.page, limit: self.limit)
+                }
+            }
+        }.disposed(by: disposeBag)
     }
 
     func setupSearchRx() {
         _ = searchBar
             .rx.text
             .orEmpty
-            .debounce(0.25, scheduler: MainScheduler.instance)
+            .asDriver()
+            .debounce(1.5)
             .distinctUntilChanged()
-            .filter { !$0.isEmpty }
-            .subscribe(onNext: { [unowned self] query in
-                _ = self.presenter!.startSearchingRepositories(query: query, page: self.page, limit: self.limit)
+            .drive(onNext: { (query) in
+                if !query.isEmpty {
+                    self.page = 1
+                    self.presenter?.startSearchingRepositories(query: query, page: self.page, limit: self.limit, isPagination: false)
+                }
             })
     }
 
 }
 
 extension RepositorySearchViewController: PresenterToViewRepositoryListProtocol {
-    func onSearchRepositorySuccess(repositoryList: Observable<RepositoryList>) {
+    func onSearchRepositorySuccess(repositoryList: RepositoryList, isPagination: Bool) {
         tableView.dataSource = nil
 
-        _ = repositoryList.subscribe { r in
-            self.repositoryList = r.event.element
-        }
+//        var items = repositoryList.items
+//
+//        if isPagination {
+//            items += items
+//        }
 
-        repositoryList
-            .map{ $0.items }
+
+        Observable.from(optional: repositoryList.items)
             .filterEmpty()
             .bind(to: tableView.rx.items(cellIdentifier: RepositorySearchTableViewCell.identifier, cellType: RepositorySearchTableViewCell.self)) { _, element, cell in
                 cell.setup(element)
@@ -68,6 +87,6 @@ extension RepositorySearchViewController: PresenterToViewRepositoryListProtocol 
     }
 
     func onSearchRepositoryFailed(error: Error) {
-
+        debugPrint(error)
     }
 }

@@ -13,17 +13,17 @@ protocol ViewToPresenterRepositoryListProtocol {
     var view: PresenterToViewRepositoryListProtocol? { get set }
     var interactor: PresenterToInteractorRepositoryListProtocol? { get set }
     var router: PresenterToRouterRepositoryListProtocol? { get set }
-    func startSearchingRepositories(query: String, page: Int, limit: Int)
+    func startSearchingRepositories(query: String, page: Int, limit: Int, isPagination: Bool)
 }
 
 protocol PresenterToViewRepositoryListProtocol {
-    func onSearchRepositorySuccess(repositoryList: Observable<RepositoryList>)
+    func onSearchRepositorySuccess(repositoryList: RepositoryList, isPagination: Bool)
     func onSearchRepositoryFailed(error: Error)
 }
 
 protocol PresenterToInteractorRepositoryListProtocol {
     var presenter: InteractorToPresenterRepositoryListProtocol? { get set }
-    func searchRepository(query: String, page: Int, limit: Int)
+    func searchRepository(query: String, page: Int, limit: Int, isPagination: Bool)
 }
 
 protocol PresenterToRouterRepositoryListProtocol {
@@ -31,6 +31,6 @@ protocol PresenterToRouterRepositoryListProtocol {
 }
 
 protocol InteractorToPresenterRepositoryListProtocol {
-    func searchRepositorySuccess(repositoryList: Observable<RepositoryList>)
+    func searchRepositorySuccess(repositoryList: RepositoryList, isPagination: Bool)
     func searchRepositoryFailed(error: Error)
 }

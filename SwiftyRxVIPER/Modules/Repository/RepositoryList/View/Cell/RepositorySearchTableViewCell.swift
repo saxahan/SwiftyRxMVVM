@@ -12,7 +12,7 @@ class RepositorySearchTableViewCell: UITableViewCell, Identifiable, Settable {
 
     typealias Element = Repository
 
-    @IBOutlet weak var btnAvatar: CircularImageButton!
+    @IBOutlet weak var userAvatarButton: UserAvatarButton!
     @IBOutlet weak var lblUsername: UILabel!
     @IBOutlet weak var lblRepo: UILabel!
 
@@ -29,13 +29,18 @@ class RepositorySearchTableViewCell: UITableViewCell, Identifiable, Settable {
 
     func setup(_ element: Repository) {
         let owner = element.owner
-        btnAvatar?.imageUrl = owner.avatarUrl
+        userAvatarButton?.imageUrl = owner.avatarUrl
         lblUsername?.text = owner.username
-        lblRepo?.text = element.name
-    }
-
-    @IBAction func avatarTapped(_ sender: Any) {
-        // TODO: open user detail screen
+        
+        // "REPO_DETAILED" = "%@\nFork Count: %@   Issue Count: %@\nFull Name: %@";
+        let repoName = element.name ?? ""
+        let repoFullname = element.fullName ?? ""
+        let detailedRepoText = String(format: "REPO_DETAILED".localized, repoName, element.forksCount, element.openIssuesCount, repoFullname)
+        let attrRepoText = detailedRepoText.highlightWords(in: repoName, attributes: [[
+            .font: UIFont.boldSystemFont(ofSize: 17),
+            .foregroundColor: UIColor.black
+            ]])
+        lblRepo.attributedText = attrRepoText
     }
 
 }

@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  SwiftyRxVIPER
+
+  Created by Yunus Alkan on 21.12.2018.
+  Copyright © 2018 Yunus Alkan. All rights reserved.
+*/
+
+"REPO_DETAILED" = "%@\nFork Count: %d   Issue Count: %d\nFull Name: %@";

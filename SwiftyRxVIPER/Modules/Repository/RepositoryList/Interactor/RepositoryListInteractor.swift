@@ -12,10 +12,20 @@ import RxSwift
 class RepositoryListInteractor: PresenterToInteractorRepositoryListProtocol {
 
     var presenter: InteractorToPresenterRepositoryListProtocol?
+    let provider = API.repositoryProvider.rx
+    let disposeBag = DisposeBag()
 
     func searchRepository(query: String, page: Int, limit: Int) {
-        presenter?.searchRepositorySuccess(repositoryList: API.repositoryProvider.rx.request(.searchRepositories(term: query, page: page, limit: limit))
-            .asObservable()
-            .map(RepositoryList.self))
+        provider.request(.searchRepositories(term: query, page: page, limit: limit))
+            .map(RepositoryList.self)
+            .retry(3)
+            .subscribe { [unowned self] event in
+                switch event {
+                case .success(let response):
+                    self.presenter?.searchRepositorySuccess(repositoryList: response)
+                case .error(let err):
+                    self.presenter?.searchRepositoryFailed(error: err)
+                }
+            }.disposed(by: disposeBag)
     }
 }
