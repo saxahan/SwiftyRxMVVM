@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.0)
+  - Differentiator (3.1.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -16,6 +17,10 @@ PODS:
   - Result (4.0.0)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxOptional (3.6.2):
     - RxCocoa (~> 4.0)
@@ -36,6 +41,7 @@ DEPENDENCIES:
   - Quick
   - R.swift
   - RxCocoa
+  - RxDataSources
   - RxOptional
   - RxSwift
   - SDWebImage
@@ -46,6 +52,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Differentiator
     - Moya
     - Nimble
     - Quick
@@ -54,6 +61,7 @@ SPEC REPOS:
     - Result
     - RxAtomic
     - RxCocoa
+    - RxDataSources
     - RxOptional
     - RxSwift
     - SDWebImage
@@ -63,6 +71,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
@@ -71,6 +80,7 @@ SPEC CHECKSUMS:
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
@@ -78,6 +88,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
 
-PODFILE CHECKSUM: 6ff899372dacfaeae71cb5eeed9c060b5c6d1001
+PODFILE CHECKSUM: 9c87f3843d642c7f1255448ad0ff551538a4bbc8
 
 COCOAPODS: 1.5.3

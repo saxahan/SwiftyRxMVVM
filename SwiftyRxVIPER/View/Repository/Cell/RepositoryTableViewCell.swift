@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
 
@@ -15,16 +16,19 @@ class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
     @IBOutlet weak var userAvatarButton: UserAvatarButton!
     @IBOutlet weak var lblUsername: UILabel!
     @IBOutlet weak var lblRepo: UILabel!
+    @IBOutlet weak var avatarWidthConstraint: NSLayoutConstraint!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var bag = DisposeBag()
+    var isForUserPage: Bool = false {
+        didSet {
+            userAvatarButton.isHidden = isForUserPage
+            lblUsername.isHidden = isForUserPage
+            avatarWidthConstraint.constant = isForUserPage ? 0 : 80
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = DisposeBag()
     }
 
     func setup(_ element: Repository) {
@@ -33,7 +37,7 @@ class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
         lblUsername?.text = owner.username
         
         // "REPO_DETAILED" = "%@\nFork Count: %@   Issue Count: %@\nFull Name: %@";
-        let repoName = element.name ?? ""
+        let repoName = element.name
         let repoFullname = element.fullName ?? ""
         let detailedRepoText = String(format: "REPO_DETAILED".localized, repoName, element.forksCount, element.openIssuesCount, repoFullname)
         let attrRepoText = detailedRepoText.highlightWords(in: repoName, attributes: [[
@@ -43,4 +47,6 @@ class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
         lblRepo.attributedText = attrRepoText
     }
 
+    @IBAction func avatarTapped(_ sender: Any) {
+    }
 }

@@ -99,10 +99,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
     /// Nib `RepositoryTableViewCell`.
     static let repositoryTableViewCell = _R.nib._RepositoryTableViewCell()
+    /// Nib `UserTableViewCell`.
+    static let userTableViewCell = _R.nib._UserTableViewCell()
     
     /// `UINib(name: "RepositoryTableViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.repositoryTableViewCell) instead")
@@ -110,19 +112,31 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.repositoryTableViewCell)
     }
     
+    /// `UINib(name: "UserTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.userTableViewCell) instead")
+    static func userTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.userTableViewCell)
+    }
+    
     static func repositoryTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositoryTableViewCell? {
       return R.nib.repositoryTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositoryTableViewCell
+    }
+    
+    static func userTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UserTableViewCell? {
+      return R.nib.userTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UserTableViewCell
     }
     
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Repository`.
     static let repository = _R.storyboard.repository()
+    /// Storyboard `User`.
+    static let user = _R.storyboard.user()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -132,6 +146,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Repository", bundle: ...)`
     static func repository(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.repository)
+    }
+    
+    /// `UIStoryboard(name: "User", bundle: ...)`
+    static func user(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.user)
     }
     
     fileprivate init() {}
@@ -189,6 +208,17 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _UserTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "UserTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UserTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UserTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -196,6 +226,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try launchScreen.validate()
       try repository.validate()
+      try user.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -227,6 +258,24 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.repository().repositoryListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'repositoryListViewController' could not be loaded from storyboard 'Repository' as 'RepositoryListViewController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct user: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "User"
+      let userDetailViewController = StoryboardViewControllerResource<UserDetailViewController>(identifier: "UserDetailViewController")
+      
+      func userDetailViewController(_: Void = ()) -> UserDetailViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userDetailViewController)
+      }
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+        if _R.storyboard.user().userDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userDetailViewController' could not be loaded from storyboard 'User' as 'UserDetailViewController'.") }
       }
       
       fileprivate init() {}

@@ -12,6 +12,9 @@ import RxSwift
 
 class BaseViewModel<T, S: Definable> {
 
+    let refreshTrigger = PublishSubject<Void>()
+    let loading = Variable<Bool>(false)
+    let error = PublishSubject<Swift.Error>()
     let disposeBag = DisposeBag()
     internal var provider: Reactive<MoyaProvider<S>>
 

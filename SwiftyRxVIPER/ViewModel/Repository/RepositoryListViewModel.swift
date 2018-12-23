@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import RxSwift
 import RxOptional
 
@@ -38,5 +37,18 @@ class RepositoryListViewModel: SearchPaginationViewModel<Repository, RepositoryS
 //            .map([Repository].self, atKeyPath: "items")
 //            .asObservable()
 //            .filterEmpty()
+    }
+
+    /// Open repository detail page
+
+    func didSelectRow(_ repository: Repository) {
+
+        
+    }
+
+    /// Open user detail page on avatar tapped
+
+    func didTappedAvatar(_ user: User) -> UIViewController? {
+        return ViewProvider.shared.mvvm(for: .userDetail, viewItem: .userDetailView(user: user))
     }
 }

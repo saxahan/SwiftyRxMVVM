@@ -87,6 +87,16 @@
 		B6A8802821CFDB540054E441 /* Definable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8802621CFDB540054E441 /* Definable.swift */; };
 		B6A8802A21CFF1500054E441 /* LoaderHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8802921CFF1500054E441 /* LoaderHUD.swift */; };
 		B6A8802B21CFF1500054E441 /* LoaderHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8802921CFF1500054E441 /* LoaderHUD.swift */; };
+		B6A8802E21D0092C0054E441 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8802D21D0092C0054E441 /* UserDetailViewModel.swift */; };
+		B6A8802F21D0092C0054E441 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8802D21D0092C0054E441 /* UserDetailViewModel.swift */; };
+		B6A8803121D00A4B0054E441 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8803021D00A4B0054E441 /* UserDetailViewController.swift */; };
+		B6A8803221D00A4B0054E441 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8803021D00A4B0054E441 /* UserDetailViewController.swift */; };
+		B6A8803421D00A5B0054E441 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A8803321D00A5B0054E441 /* User.storyboard */; };
+		B6A8803521D00A5B0054E441 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A8803321D00A5B0054E441 /* User.storyboard */; };
+		B6A8803921D00E6C0054E441 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8803721D00E6C0054E441 /* UserTableViewCell.swift */; };
+		B6A8803A21D00E6C0054E441 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8803721D00E6C0054E441 /* UserTableViewCell.swift */; };
+		B6A8803B21D00E6C0054E441 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A8803821D00E6C0054E441 /* UserTableViewCell.xib */; };
+		B6A8803C21D00E6C0054E441 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A8803821D00E6C0054E441 /* UserTableViewCell.xib */; };
 		B6C4D9CF21CCC4AF00A6BE90 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C4D9CD21CCC4AF00A6BE90 /* RepositoryListViewController.swift */; };
 		B6C4D9D021CCC4AF00A6BE90 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C4D9CD21CCC4AF00A6BE90 /* RepositoryListViewController.swift */; };
 		B6C4D9E121CCC9E600A6BE90 /* Repository.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C4D9E021CCC9E600A6BE90 /* Repository.storyboard */; };
@@ -163,6 +173,11 @@
 		B6A8802321CFD78D0054E441 /* BindableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableViewController.swift; sourceTree = "<group>"; };
 		B6A8802621CFDB540054E441 /* Definable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definable.swift; sourceTree = "<group>"; };
 		B6A8802921CFF1500054E441 /* LoaderHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderHUD.swift; sourceTree = "<group>"; };
+		B6A8802D21D0092C0054E441 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		B6A8803021D00A4B0054E441 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		B6A8803321D00A5B0054E441 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		B6A8803721D00E6C0054E441 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		B6A8803821D00E6C0054E441 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		B6C4D9CD21CCC4AF00A6BE90 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		B6C4D9E021CCC9E600A6BE90 /* Repository.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repository.storyboard; sourceTree = "<group>"; };
 		B6C4D9E321CCCD5100A6BE90 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -300,6 +315,7 @@
 		B64818C821CE9A9300BA82C4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B6A8802C21D009110054E441 /* User */,
 				B64818D421CEA3F400BA82C4 /* Repository */,
 				B64818D521CEA40B00BA82C4 /* BaseViewModel.swift */,
 				B64818D821CEA4E100BA82C4 /* SearchPaginationViewModel.swift */,
@@ -320,6 +336,9 @@
 		B64818CA21CE9C6B00BA82C4 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				B6A8803621D00DFE0054E441 /* Cell */,
+				B6A8803021D00A4B0054E441 /* UserDetailViewController.swift */,
+				B6A8803321D00A5B0054E441 /* User.storyboard */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -418,6 +437,23 @@
 				B6844F2E21CAD26E007472E7 /* Config-Staging.plist */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		B6A8802C21D009110054E441 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B6A8802D21D0092C0054E441 /* UserDetailViewModel.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		B6A8803621D00DFE0054E441 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B6A8803721D00E6C0054E441 /* UserTableViewCell.swift */,
+				B6A8803821D00E6C0054E441 /* UserTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B6C4D9F321CCF92400A6BE90 /* Cell */ = {
@@ -563,7 +599,9 @@
 				B6844F2C21CAD22C007472E7 /* Config-Develop.plist in Resources */,
 				B6533FD321CB873500463799 /* search-repositories-200-res.json in Resources */,
 				B64818CC21CE9CDE00BA82C4 /* RepositoryTableViewCell.xib in Resources */,
+				B6A8803B21D00E6C0054E441 /* UserTableViewCell.xib in Resources */,
 				B67F1BAA21C93C06002A7538 /* LaunchScreen.storyboard in Resources */,
+				B6A8803421D00A5B0054E441 /* User.storyboard in Resources */,
 				B6C4D9E121CCC9E600A6BE90 /* Repository.storyboard in Resources */,
 				B6844F2F21CAD26E007472E7 /* Config-Staging.plist in Resources */,
 				B6844F3221CAD276007472E7 /* Config-Release.plist in Resources */,
@@ -590,7 +628,9 @@
 				B6844F2D21CAD22C007472E7 /* Config-Develop.plist in Resources */,
 				B6533FD421CB873500463799 /* search-repositories-200-res.json in Resources */,
 				B64818CD21CE9CDE00BA82C4 /* RepositoryTableViewCell.xib in Resources */,
+				B6A8803C21D00E6C0054E441 /* UserTableViewCell.xib in Resources */,
 				B6844F1D21CAC968007472E7 /* LaunchScreen.storyboard in Resources */,
+				B6A8803521D00A5B0054E441 /* User.storyboard in Resources */,
 				B6C4D9E221CCC9E600A6BE90 /* Repository.storyboard in Resources */,
 				B6844F3021CAD26E007472E7 /* Config-Staging.plist in Resources */,
 				B6844F3321CAD276007472E7 /* Config-Release.plist in Resources */,
@@ -807,8 +847,10 @@
 				B6A8802421CFD78D0054E441 /* BindableViewController.swift in Sources */,
 				B67F1BA021C93C04002A7538 /* AppDelegate.swift in Sources */,
 				B63B329A21CD7819009B2ADB /* UIView+.swift in Sources */,
+				B6A8803121D00A4B0054E441 /* UserDetailViewController.swift in Sources */,
 				B6A8802A21CFF1500054E441 /* LoaderHUD.swift in Sources */,
 				B64818D621CEA40B00BA82C4 /* BaseViewModel.swift in Sources */,
+				B6A8803921D00E6C0054E441 /* UserTableViewCell.swift in Sources */,
 				B64818B321CE336600BA82C4 /* UIScrollView+.swift in Sources */,
 				B64818CF21CE9DFD00BA82C4 /* ViewProvider.swift in Sources */,
 				B64D783321CBCBD4007F11F2 /* RepositoryList.swift in Sources */,
@@ -824,6 +866,7 @@
 				B62097FD21CA6E8F00985C6A /* RepositoryService.swift in Sources */,
 				B64818BF21CE3A0100BA82C4 /* ServiceState.swift in Sources */,
 				B64818C221CE3AB400BA82C4 /* ReachabilityService.swift in Sources */,
+				B6A8802E21D0092C0054E441 /* UserDetailViewModel.swift in Sources */,
 				B6C4D9CF21CCC4AF00A6BE90 /* RepositoryListViewController.swift in Sources */,
 				B63B329021CD5FAA009B2ADB /* String+.swift in Sources */,
 				B62097EE21CA5F1600985C6A /* API.swift in Sources */,
@@ -853,8 +896,10 @@
 				B6A8802521CFD78D0054E441 /* BindableViewController.swift in Sources */,
 				B6844F1421CAC968007472E7 /* AppDelegate.swift in Sources */,
 				B63B329B21CD7819009B2ADB /* UIView+.swift in Sources */,
+				B6A8803221D00A4B0054E441 /* UserDetailViewController.swift in Sources */,
 				B6A8802B21CFF1500054E441 /* LoaderHUD.swift in Sources */,
 				B64818D721CEA40B00BA82C4 /* BaseViewModel.swift in Sources */,
+				B6A8803A21D00E6C0054E441 /* UserTableViewCell.swift in Sources */,
 				B64818B421CE336600BA82C4 /* UIScrollView+.swift in Sources */,
 				B64818D021CE9DFD00BA82C4 /* ViewProvider.swift in Sources */,
 				B64D783421CBCBD4007F11F2 /* RepositoryList.swift in Sources */,
@@ -870,6 +915,7 @@
 				B6844F1721CAC968007472E7 /* RepositoryService.swift in Sources */,
 				B64818C021CE3A0100BA82C4 /* ServiceState.swift in Sources */,
 				B64818C321CE3AB400BA82C4 /* ReachabilityService.swift in Sources */,
+				B6A8802F21D0092C0054E441 /* UserDetailViewModel.swift in Sources */,
 				B6C4D9D021CCC4AF00A6BE90 /* RepositoryListViewController.swift in Sources */,
 				B63B329121CD5FAA009B2ADB /* String+.swift in Sources */,
 				B6844F1921CAC968007472E7 /* API.swift in Sources */,

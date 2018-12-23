@@ -12,13 +12,10 @@ import RxOptional
 
 class SearchPaginationViewModel<T, S: Definable>: BaseViewModel<T, S> {
 
-    let refreshTrigger = PublishSubject<Void>()
     let loadNextPageTrigger = PublishSubject<Void>()
     var searchTrigger = PublishSubject<String>()
-    let loading = Variable<Bool>(false)
     let query = Variable<String>("")
     let elements = Variable<[T]>([])
-    let error = PublishSubject<Swift.Error>()
     internal var totalCount: Int = 0
     var page: Int = 0
     var allPageLoaded: Bool = false

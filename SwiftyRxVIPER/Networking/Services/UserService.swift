@@ -12,7 +12,7 @@ import Moya
 enum UserService: Definable {
     case getUser(id: Int)
     case getUserBy(username: String)
-    case getUserRepos(username: String)
+    case getUserRepos(username: String, page: Int, limit: Int)
 }
 
 extension UserService {
@@ -27,7 +27,7 @@ extension UserService {
             return "\(id)"
         case .getUserBy(let username):
             return "\(username)"
-        case .getUserRepos(let username):
+        case .getUserRepos(let username, _, _):
             return "\(username)/repos"
         }
     }
@@ -40,7 +40,7 @@ extension UserService {
         switch self {
         case .getUser, .getUserBy:
             return try! Data(resource: R.file.getUser200ResJson)
-        case .getUserRepos(let username):
+        case .getUserRepos(let username, _, _):
             if username.isEmpty {
                 return Data()
             }
@@ -50,7 +50,12 @@ extension UserService {
     }
 
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .getUserRepos(_, let page, let limit):
+            return .requestParameters(parameters: ["page": page, "per_page": limit], encoding: URLEncoding.queryString)
+        default:
+            return .requestPlain
+        }
     }
 
     var headers: [String : String]? {

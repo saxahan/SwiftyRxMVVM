@@ -13,6 +13,7 @@ def shared_pods
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'RxOptional'
+    pod 'RxDataSources'
 
     pod 'R.swift'
 

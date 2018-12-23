@@ -26,13 +26,23 @@ class RepositoryListViewController: BindableViewController {
 
         viewModel.elements.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: RepositoryTableViewCell.identifier, cellType: RepositoryTableViewCell.self)) { (_, item, cell) in
+                cell.userAvatarButton.rx.tap.asDriver()
+                    .drive(onNext: { [unowned self] in
+                        // code that has to be handled by view controller
+                        if let vc = self.viewModel.didTappedAvatar(item.owner) {
+                            DispatchQueue.main.async {
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
+                    }).disposed(by: cell.bag)
+
                 cell.setup(item)
             }
             .disposed(by: viewModel.disposeBag)
 
         tableView.rx.itemSelected
             .bind() { [unowned self] indexPath in
-//                self.didSelectRow(ip: ip.row)
+                self.viewModel.didSelectRow(self.viewModel.elements.value[indexPath.row])
             }
             .disposed(by: viewModel.disposeBag)
 
