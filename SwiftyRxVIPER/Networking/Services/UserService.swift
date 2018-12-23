@@ -9,13 +9,13 @@
 import Foundation
 import Moya
 
-enum UserService {
+enum UserService: Definable {
     case getUser(id: Int)
     case getUserBy(username: String)
     case getUserRepos(username: String)
 }
 
-extension UserService: TargetType {
+extension UserService {
 
     var baseURL: URL {
         return AppConfig.baseURL.appendingPathComponent("users")

@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import RxSwift
 
 extension UIScrollView {
-    func isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {
-        return contentOffset.y + frame.size.height + edgeOffset > contentSize.height
+    var rxReachedBottom: Observable<Void> {
+        return rx.contentOffset
+            .flatMap { [weak self] contentOffset -> Observable<Void> in
+                guard let scrollView = self else {
+                    return Observable.empty()
+                }
+
+                let visibleHeight = scrollView.frame.height - scrollView.contentInset.top - scrollView.contentInset.bottom
+                let y = contentOffset.y + scrollView.contentInset.top
+                let threshold = max(20, scrollView.contentSize.height - visibleHeight)
+
+                return y > threshold ? Observable.just(()) : Observable.empty()
+        }
     }
 }

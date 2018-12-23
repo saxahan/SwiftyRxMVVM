@@ -9,12 +9,12 @@
 import Foundation
 import Moya
 
-enum RepositoryService {
+enum RepositoryService: Definable {
     case getRepository(id: Int)
     case searchRepositories(term: String, page: Int, limit: Int)
 }
 
-extension RepositoryService: TargetType {
+extension RepositoryService {
 
     var baseURL: URL {
         switch self {

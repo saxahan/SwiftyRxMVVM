@@ -13,7 +13,7 @@
         <!--Repositories-->
         <scene sceneID="EWj-rI-IjB">
             <objects>
-                <viewController storyboardIdentifier="RepositorySearchViewController" id="olm-td-xSI" customClass="RepositorySearchViewController" customModule="SwiftyRxVIPER" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoryListViewController" id="olm-td-xSI" customClass="RepositoryListViewController" customModule="SwiftyRxVIPER" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5CJ-VD-sx2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositorySearchTableViewCell" id="u3f-pk-9IQ" customClass="RepositorySearchTableViewCell" customModule="SwiftyRxVIPER" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="u3f-pk-9IQ" customClass="RepositoryTableViewCell" customModule="SwiftyRxVIPER" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="84" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u3f-pk-9IQ" id="uNx-eG-Cpa">
@@ -55,7 +55,6 @@
         <!--Navigation Controller-->
         <scene sceneID="a8e-dr-MQI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HZG-p2-GVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JO5-l9-hLE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="313-l6-QLc">
@@ -67,6 +66,7 @@
                         <segue destination="olm-td-xSI" kind="relationship" relationship="rootViewController" id="wFc-GE-ETo"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZG-p2-GVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="114.40000000000001" y="197.45127436281859"/>
         </scene>

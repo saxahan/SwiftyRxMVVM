@@ -101,26 +101,18 @@ struct R: Rswift.Validatable {
   
   /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
-    /// Nib `RepositorySearchTableViewCell`.
-    static let repositorySearchTableViewCell = _R.nib._RepositorySearchTableViewCell()
+    /// Nib `RepositoryTableViewCell`.
+    static let repositoryTableViewCell = _R.nib._RepositoryTableViewCell()
     
-    /// `UINib(name: "RepositorySearchTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.repositorySearchTableViewCell) instead")
-    static func repositorySearchTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.repositorySearchTableViewCell)
+    /// `UINib(name: "RepositoryTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.repositoryTableViewCell) instead")
+    static func repositoryTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.repositoryTableViewCell)
     }
     
-    static func repositorySearchTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositorySearchTableViewCell? {
-      return R.nib.repositorySearchTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositorySearchTableViewCell
+    static func repositoryTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositoryTableViewCell? {
+      return R.nib.repositoryTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositoryTableViewCell
     }
-    
-    fileprivate init() {}
-  }
-  
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
-  struct reuseIdentifier {
-    /// Reuse identifier `RepositorySearchTableViewCell`.
-    static let repositorySearchTableViewCell: Rswift.ReuseIdentifier<RepositorySearchTableViewCell> = Rswift.ReuseIdentifier(identifier: "RepositorySearchTableViewCell")
     
     fileprivate init() {}
   }
@@ -145,6 +137,28 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    struct localizable {
+      /// en translation: %@ Fork Count: %d   Issue Count: %d Full Name: %@
+      /// 
+      /// Locales: en
+      static let repo_DETAILED = Rswift.StringResource(key: "REPO_DETAILED", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: %@ Fork Count: %d   Issue Count: %d Full Name: %@
+      /// 
+      /// Locales: en
+      static func repo_DETAILED(_ value1: String, _ value2: Int, _ value3: Int, _ value4: String) -> String {
+        return String(format: NSLocalizedString("REPO_DETAILED", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1, value2, value3, value4)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -164,12 +178,12 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
-    struct _RepositorySearchTableViewCell: Rswift.NibResourceType {
+    struct _RepositoryTableViewCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
-      let name = "RepositorySearchTableViewCell"
+      let name = "RepositoryTableViewCell"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositorySearchTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositorySearchTableViewCell
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositoryTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositoryTableViewCell
       }
       
       fileprivate init() {}
@@ -203,16 +217,16 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Repository"
-      let repositorySearchViewController = StoryboardViewControllerResource<RepositorySearchViewController>(identifier: "RepositorySearchViewController")
+      let repositoryListViewController = StoryboardViewControllerResource<RepositoryListViewController>(identifier: "RepositoryListViewController")
       
-      func repositorySearchViewController(_: Void = ()) -> RepositorySearchViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: repositorySearchViewController)
+      func repositoryListViewController(_: Void = ()) -> RepositoryListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: repositoryListViewController)
       }
       
       static func validate() throws {
         if #available(iOS 11.0, *) {
         }
-        if _R.storyboard.repository().repositorySearchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'repositorySearchViewController' could not be loaded from storyboard 'Repository' as 'RepositorySearchViewController'.") }
+        if _R.storyboard.repository().repositoryListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'repositoryListViewController' could not be loaded from storyboard 'Repository' as 'RepositoryListViewController'.") }
       }
       
       fileprivate init() {}

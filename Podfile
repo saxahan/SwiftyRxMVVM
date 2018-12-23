@@ -16,7 +16,7 @@ def shared_pods
 
     pod 'R.swift'
 
-    pod 'MBProgressHUD'
+    pod 'SVProgressHUD'
 end
 
 target 'SwiftyRxVIPER' do

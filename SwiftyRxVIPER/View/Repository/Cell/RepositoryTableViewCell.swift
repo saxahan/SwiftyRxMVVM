@@ -1,5 +1,5 @@
 //
-//  RepositorySearchTableViewCell.swift
+//  RepositoryTableViewCell.swift
 //  SwiftyRxVIPER
 //
 //  Created by Yunus Alkan on 21.12.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositorySearchTableViewCell: UITableViewCell, Identifiable, Settable {
+class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
 
     typealias Element = Repository
 
