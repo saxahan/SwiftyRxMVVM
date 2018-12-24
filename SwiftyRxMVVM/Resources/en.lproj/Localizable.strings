@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  SwiftyRxMVVM
+
+  Created by Yunus Alkan on 21.12.2018.
+  Copyright © 2018 Yunus Alkan. All rights reserved.
+*/
+
+"REPO_DETAILED" = "%@\n-Fork Count: %d\n-Issue Count: %d\n-Full Name: %@";
+"SERVICE_LIMIT_REACHED" = "API rate limit exceeded";
+"SERVICE_OFFLINE" = "Service is offline";
+"SERVICE_NETWORK_ERROR" = "No internet connection";

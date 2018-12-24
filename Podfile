@@ -20,16 +20,16 @@ def shared_pods
     pod 'SVProgressHUD'
 end
 
-target 'SwiftyRxVIPER' do
+target 'SwiftyRxMVVM' do
   shared_pods
 
-  target 'SwiftyRxVIPERTests' do
+  target 'SwiftyRxMVVMTests' do
       pod 'Quick'
       pod 'Nimble'
   end
 end
 
-target 'SwiftyRxVIPER-Staging' do
+target 'SwiftyRxMVVM-Staging' do
   shared_pods
 end
 

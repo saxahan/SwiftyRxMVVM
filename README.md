@@ -1,1 +1,1 @@
-# SwiftyRxVIPER
+# SwiftyRxMVVM
