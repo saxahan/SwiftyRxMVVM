@@ -30,7 +30,6 @@ PODS:
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
-  - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.29.1)
 
@@ -45,7 +44,6 @@ DEPENDENCIES:
   - RxOptional
   - RxSwift
   - SDWebImage
-  - SnapKit
   - SVProgressHUD
   - SwiftLint
 
@@ -65,7 +63,6 @@ SPEC REPOS:
     - RxOptional
     - RxSwift
     - SDWebImage
-    - SnapKit
     - SVProgressHUD
     - SwiftLint
 
@@ -84,10 +81,9 @@ SPEC CHECKSUMS:
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
 
-PODFILE CHECKSUM: 44b2d84a378d80e7e269b50dc0c5c24290569e50
+PODFILE CHECKSUM: 98732b5c5b0cdf806ed926b3a3d4b8c504d6b78d
 
 COCOAPODS: 1.5.3

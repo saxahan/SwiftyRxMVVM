@@ -7,7 +7,6 @@ def shared_pods
     pod 'SwiftLint'
 	pod 'Moya'
     pod 'Moya/RxSwift'
-    pod 'SnapKit'
     pod 'SDWebImage'
 
     pod 'RxSwift'
