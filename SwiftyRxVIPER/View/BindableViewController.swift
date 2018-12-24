@@ -15,7 +15,11 @@ protocol BindableProtocols: class {
     func onError() -> AnyObserver<Error>?
 }
 
-class BindableViewController: UIViewController, BindableProtocols {
+class BindableViewController<T>: UIViewController, BindableProtocols, Modelable {
+
+    typealias ViewModel = T
+    var viewModel: T!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViews()

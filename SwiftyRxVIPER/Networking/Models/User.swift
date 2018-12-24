@@ -34,3 +34,24 @@ struct User: Decodable {
         self.url = try container.decodeIfPresent(String.self, forKey: .url)
     }
 }
+
+extension User {
+    /// It's like a toString as variable :)
+
+    var toString: String {
+        let username = self.username ?? ""
+        let email = self.email ?? ""
+        let location = self.location ?? ""
+        var detailText = "\(username)"
+
+        if !email.isEmpty {
+            detailText += "-\(email)"
+        }
+
+        if !location.isEmpty {
+            detailText += "\n\(location)"
+        }
+
+        return detailText
+    }
+}

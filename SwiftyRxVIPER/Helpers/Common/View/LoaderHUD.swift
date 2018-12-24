@@ -13,6 +13,8 @@ enum LoaderState {
     case success, error, info
 }
 
+/// Wrapper manager of SVProgressHUD for simple test usages.
+
 class LoaderHUD {
     static let shared = LoaderHUD()
 

@@ -32,23 +32,17 @@ class RepositoryListViewModel: SearchPaginationViewModel<Repository, RepositoryS
                     }
             }
         }
-
-//        return provider.request(.searchRepositories(term: query, page: page, limit: limit))
-//            .map([Repository].self, atKeyPath: "items")
-//            .asObservable()
-//            .filterEmpty()
     }
 
     /// Open repository detail page
 
-    func didSelectRow(_ repository: Repository) {
-
-        
+    func didSelectRow(_ repository: Repository) -> UIViewController? {
+        return MVVMComposer.createInstance(for: .repositoryDetailView(repository: repository))
     }
 
     /// Open user detail page on avatar tapped
 
     func didTappedAvatar(_ user: User) -> UIViewController? {
-        return ViewProvider.shared.mvvm(for: .userDetail, viewItem: .userDetailView(user: user))
+        return MVVMComposer.createInstance(for: .userDetailView(user: user))
     }
 }

@@ -42,10 +42,10 @@ class UserSpec: QuickSpec {
             }
         }
 
-        it("should has user repositories by username") {
+        it("should has user repositories by username for a given page") {
             let target = UserService.getUserRepos
 
-            provider.request(target("saxahan")) { result in
+            provider.request(target("saxahan", 1, 20)) { result in
                 switch result {
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
@@ -61,7 +61,7 @@ class UserSpec: QuickSpec {
         it("shouldn't has repos") {
             let target = UserService.getUserRepos
 
-            provider.request(target("")) { result in
+            provider.request(target("saxahan", 1, 20)) { result in
                 switch result {
                 case .failure(let error):
                     debugPrint(error.localizedDescription)

@@ -11,12 +11,10 @@ import RxSwift
 import RxCocoa
 import Moya
 
-class RepositoryListViewController: BindableViewController {
+class RepositoryListViewController: BindableViewController<RepositoryListViewModel> {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-
-    var viewModel: RepositoryListViewModel!
 
     override func bindViews() {
         tableView.keyboardDismissMode = .onDrag
@@ -28,7 +26,6 @@ class RepositoryListViewController: BindableViewController {
             .bind(to: tableView.rx.items(cellIdentifier: RepositoryTableViewCell.identifier, cellType: RepositoryTableViewCell.self)) { (_, item, cell) in
                 cell.userAvatarButton.rx.tap.asDriver()
                     .drive(onNext: { [unowned self] in
-                        // code that has to be handled by view controller
                         if let vc = self.viewModel.didTappedAvatar(item.owner) {
                             DispatchQueue.main.async {
                                 self.navigationController?.pushViewController(vc, animated: true)
@@ -42,7 +39,9 @@ class RepositoryListViewController: BindableViewController {
 
         tableView.rx.itemSelected
             .bind() { [unowned self] indexPath in
-                self.viewModel.didSelectRow(self.viewModel.elements.value[indexPath.row])
+                if let vc = self.viewModel.didSelectRow(self.viewModel.elements.value[indexPath.row]) {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
             .disposed(by: viewModel.disposeBag)
 
@@ -77,16 +76,22 @@ class RepositoryListViewController: BindableViewController {
         return Binder(view, binding: { (_, isLoading) in
             switch isLoading {
             case true:
-                LoaderHUD.shared.showOnWindow()
+                DispatchQueue.main.async {
+                    LoaderHUD.shared.showOnWindow()
+                }
             case false:
-                LoaderHUD.shared.hide()
+                DispatchQueue.main.async {
+                    LoaderHUD.shared.hide()
+                }
             }
         }).asObserver()
     }
 
     override func onError() -> AnyObserver<Error>? {
         return Binder(view, binding: { (_, error) in
-            LoaderHUD.shared.showOnWindow(for: .error, error.localizedDescription)
+            DispatchQueue.main.async {
+                LoaderHUD.shared.showOnWindow(for: .error, (error as? ServiceError)?.localizedDescription ?? error.localizedDescription)
+            }
         }).asObserver()
     }
 

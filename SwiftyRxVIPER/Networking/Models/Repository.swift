@@ -39,3 +39,16 @@ struct Repository: Decodable {
         self.owner = try container.decode(User.self, forKey: .owner)
     }
 }
+
+extension Repository {
+
+    /// It's like a toString as variable :)
+
+    var toString: String {
+        let repoName = self.name
+        let repoFullname = self.fullName ?? ""
+        let detailedRepoText = String(format: "REPO_DETAILED".localized, repoName, self.forksCount, self.openIssuesCount, repoFullname)
+
+        return detailedRepoText
+    }
+}

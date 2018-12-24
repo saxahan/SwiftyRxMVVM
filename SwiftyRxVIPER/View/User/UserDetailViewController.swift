@@ -11,16 +11,18 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class UserDetailViewController: BindableViewController {
+class UserDetailViewController: BindableViewController<UserDetailViewModel>, UITableViewDelegate {
+
+    // pull to refresh example instance
+    // I can make it more generic ...
+    private let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
-
-    var viewModel: UserDetailViewModel!
 
     override func bindViews() {
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.separatorStyle = .none
+        tableView.refreshControl = refreshControl
         tableView.register(UINib(resource: R.nib.repositoryTableViewCell), forCellReuseIdentifier: RepositoryTableViewCell.identifier)
         tableView.register(UINib(resource: R.nib.userTableViewCell), forCellReuseIdentifier: UserTableViewCell.identifier)
         tableView.delegate = self
@@ -45,6 +47,10 @@ class UserDetailViewController: BindableViewController {
         }
         )
 
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind(to: viewModel.refreshTrigger)
+            .disposed(by: viewModel.disposeBag)
+
         rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .map { _ in () }
             .bind(to: viewModel.refreshTrigger)
@@ -54,25 +60,14 @@ class UserDetailViewController: BindableViewController {
             .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: viewModel.disposeBag)
 
-//        viewModel.elements.asObservable()
-//            .bind(to: tableView.rx.items(cellIdentifier: RepositoryTableViewCell.identifier, cellType: RepositoryTableViewCell.self)) { (_, item, cell) in
-//                cell.setup(item)
-//            }
-//            .disposed(by: viewModel.disposeBag)
-
-        tableView.rx.itemSelected
-            .bind() { [unowned self] indexPath in
-                if let vc = self.viewModel?.didSelectRow(indexPath) {
+        tableView.rx
+            .modelSelected(SectionItem.self)
+            .bind() { item in
+                if let vc = self.viewModel?.didSelectRow(item) {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
-                //                self.didSelectRow(ip: ip.row)
             }
             .disposed(by: viewModel.disposeBag)
-
-//        rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
-//            .map { _ in () }
-//            .bind(to: viewModel.refreshTrigger)
-//            .disposed(by: viewModel.disposeBag)
 
         tableView.rxReachedBottom
             .map{ _ in ()}
@@ -81,6 +76,11 @@ class UserDetailViewController: BindableViewController {
 
         viewModel.loading
             .asObservable()
+            .do(onNext: { [unowned self] isLoading in
+                if isLoading {
+                    self.refreshControl.endRefreshing()
+                }
+            })
             .bind(to: isLoading(for: self.view)!)
             .disposed(by: viewModel.disposeBag)
 
@@ -94,22 +94,35 @@ class UserDetailViewController: BindableViewController {
         return Binder(view, binding: { (_, isLoading) in
             switch isLoading {
             case true:
-                LoaderHUD.shared.showOnWindow()
+                DispatchQueue.main.async {
+                    LoaderHUD.shared.showOnWindow()
+                }
             case false:
-                LoaderHUD.shared.hide()
+                DispatchQueue.main.async {
+                    LoaderHUD.shared.hide()
+                }
             }
         }).asObserver()
     }
 
     override func onError() -> AnyObserver<Error>? {
         return Binder(view, binding: { (_, error) in
-            LoaderHUD.shared.showOnWindow(for: .error, error.localizedDescription)
+            DispatchQueue.main.async {
+                LoaderHUD.shared.showOnWindow(for: .error, (error as? ServiceError)?.localizedDescription ?? error.localizedDescription)
+            }
         }).asObserver()
     }
 
-}
+    // MARK: UITableViewDelegate
 
-extension UserDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerViewLabel = (view as? UITableViewHeaderFooterView)?.textLabel {
+            headerViewLabel.textAlignment = .center
+        }
+
+        tableView.separatorStyle = section == 1 ? .singleLine : .none
+    }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 0 : 30
     }

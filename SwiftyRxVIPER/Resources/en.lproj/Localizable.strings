@@ -6,4 +6,7 @@
   Copyright © 2018 Yunus Alkan. All rights reserved.
 */
 
-"REPO_DETAILED" = "%@\nFork Count: %d   Issue Count: %d\nFull Name: %@";
+"REPO_DETAILED" = "%@\n-Fork Count: %d\n-Issue Count: %d\n-Full Name: %@";
+"SERVICE_LIMIT_REACHED" = "API rate limit exceeded";
+"SERVICE_OFFLINE" = "Service is offline";
+"SERVICE_NETWORK_ERROR" = "No internet connection";

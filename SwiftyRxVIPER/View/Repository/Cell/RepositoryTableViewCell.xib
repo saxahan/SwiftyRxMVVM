@@ -32,9 +32,6 @@
                             <constraint firstAttribute="width" constant="80" id="ncB-B0-dF3"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="avatarTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="s5b-vJ-Gdo"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblUsername" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRJ-4F-tKZ">
                         <rect key="frame" x="10" y="95" width="80" height="42.5"/>

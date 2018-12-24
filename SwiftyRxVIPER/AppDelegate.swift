@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureAPI(application, launchOptions: launchOptions)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewProvider.shared.mvvm(for: .repositoryList)
+        window?.rootViewController = MVVMComposer.createInstance(for: .repositoryListView)
         window?.makeKeyAndVisible()
         
         return true

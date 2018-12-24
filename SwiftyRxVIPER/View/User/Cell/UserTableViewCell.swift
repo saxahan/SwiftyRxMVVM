@@ -7,24 +7,27 @@
 //
 
 import UIKit
+import RxSwift
 
-class UserTableViewCell: UITableViewCell, Identifiable, Settable {
+class UserTableViewCell: BaseTableViewCell, Settable {
 
     typealias Element = User
 
     @IBOutlet weak var imgViewAvatar: UIImageView!
     @IBOutlet weak var lblDetail: UILabel!
 
+    var bag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
         imgViewAvatar.setRounded()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = DisposeBag()
     }
 
     func setup(_ element: User) {
@@ -35,10 +38,7 @@ class UserTableViewCell: UITableViewCell, Identifiable, Settable {
         let paragStyle = NSMutableParagraphStyle()
         paragStyle.alignment = .center
 
-        let username = element.username ?? ""
-        let email = element.email ?? ""
-        let location = element.location ?? ""
-        let detailText = "\(username)-\(email)\n\(location)"
+        let detailText = element.toString
         let attrText = detailText.highlightWords(in: detailText, attributes: [[
             .paragraphStyle: paragStyle
             ]])
@@ -46,7 +46,7 @@ class UserTableViewCell: UITableViewCell, Identifiable, Settable {
         attrText.addAttributes([
             .font: UIFont.boldSystemFont(ofSize: 16),
             .foregroundColor: UIColor.black
-            ], range: NSString(string: detailText).range(of: username))
+            ], range: NSString(string: detailText).range(of: element.username ?? ""))
 
         lblDetail.attributedText = attrText
     }

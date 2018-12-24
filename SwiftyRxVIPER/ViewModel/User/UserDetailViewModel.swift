@@ -11,6 +11,12 @@ import RxSwift
 import RxOptional
 import RxDataSources
 
+/**
+ * This view model should extend `SearchPaginationViewModel`; but I like to show different way because no searching needs.
+ * There can be created more generic class in order to handle such cases.
+ * In this view model, which handles UserDetailViewController view class by observable variables & subjects.
+ */
+
 class UserDetailViewModel: BaseViewModel<User, UserService> {
 
     var user: User
@@ -19,7 +25,7 @@ class UserDetailViewModel: BaseViewModel<User, UserService> {
     var sections: [MultipleSectionModel]!
     var dataSource: RxTableViewSectionedReloadDataSource<MultipleSectionModel>!
     var page: Int = 1
-    var totalCount: Int = 1
+    var totalCount: Int = 0
     var allPageLoaded: Bool = false
     let loadNextPageTrigger = PublishSubject<Void>()
 
@@ -49,7 +55,7 @@ class UserDetailViewModel: BaseViewModel<User, UserService> {
         let nextPageRequest = loading.asObservable()
             .sample(loadNextPageTrigger)
             .flatMap { [unowned self] loading -> Observable<Int> in
-                if loading || self.allPageLoaded {
+                if loading {
                     return Observable.empty()
                 } else {
                     return Observable<Int>.create { [unowned self] observer in
@@ -75,11 +81,23 @@ class UserDetailViewModel: BaseViewModel<User, UserService> {
                 })
             }.share(replay: 1)
 
+        repos.asObservable()
+            .subscribe({ [unowned self] (repositories) in
+                if let elems = repositories.element, let sections = self.sections {
+                    self.sectionTrigger.onNext(sections + [MultipleSectionModel.RepositorySection(title: "User Repositories", items: elems.map { .RepositorySectionItem(repository: $0) })])
+                }
+
+            })
+            .disposed(by: disposeBag)
+
         Observable
             .combineLatest(request, response, repos.asObservable()) { [unowned self] _, response, elements in
-//                let r = MultipleSectionModel.RepositorySection(title: "Repositories", items: response.map{ SectionItem.RepositorySectionItem(repository: $0) })
                 let newElements = self.page == 0 ? response : response + elements
-                self.allPageLoaded = self.totalCount == newElements.count
+                self.allPageLoaded = response.isEmpty
+
+                if self.allPageLoaded {
+                    self.loading.value = false
+                }
                 return newElements
             }
             .sample(response)
@@ -92,15 +110,6 @@ class UserDetailViewModel: BaseViewModel<User, UserService> {
                 error.map { _ in false })
             .merge()
             .bind(to: loading)
-            .disposed(by: disposeBag)
-
-        repos.asObservable()
-            .subscribe({ [unowned self] (repositories) in
-                if let elems = repositories.element, let sections = self.sections {
-                    self.sectionTrigger.onNext(sections + [MultipleSectionModel.RepositorySection(title: "User Repositories", items: elems.map { .RepositorySectionItem(repository: $0) })])
-                }
-
-            })
             .disposed(by: disposeBag)
     }
 
@@ -126,43 +135,24 @@ class UserDetailViewModel: BaseViewModel<User, UserService> {
                         let items = try! result.map([Repository].self)
                         self.totalCount = items.count
                         self.allPageLoaded = items.isEmpty
-                        observer.onNext(items)
+
+                        if items.isEmpty {
+                            self.loading.value = false
+                            observer.onCompleted()
+                        }
+                        else {
+                            observer.onNext(items)
+                        }
                     case .error(let error):
                         observer.onError(error)
                     }
             }
         }
-
-//        return self.provider.request(.getUserRepos(username: self.user.username!, page: page, limit: limit))
-//                .subscribe { e in
-//                    switch e {
-//                    case .success(let result):
-//                        if result.statusCode == 403 {
-////                            observer.onError(ServiceError.limitReached)
-//                            return
-//                        }
-//
-//                        let items = try! result.map([Repository].self)
-//                        self.totalCount = items.count
-//                        self.allPageLoaded = self.repos.count == items.count
-//                        self.sections.value.append(.RepositorySection(title: "Repositories \(items.count)", items: items.map { .RepositorySectionItem(repository: $0) }))
-////                        observer.onNext(items)
-//                        break
-//                    case .error(let error):
-//                        break
-////                        observer.onError(error)
-//                    }
-//            }
     }
 
-    func didSelectRow(_ indexPath: IndexPath) -> UIViewController? {
-        do {
-            let item = try dataSource.model(at: indexPath)
-            if let repository = item as? Repository {
-                 return ViewProvider.shared.mvvm(for: .repositoryDetail, viewItem: .repositoryDetailView(repository: repository))
-            }
-        } catch  {
-
+    func didSelectRow(_ item: SectionItem) -> UIViewController? {
+        if case let SectionItem.RepositorySectionItem(repository) = item  {
+            return MVVMComposer.createInstance(for: .repositoryDetailView(repository: repository))
         }
 
         return nil

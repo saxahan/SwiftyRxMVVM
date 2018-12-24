@@ -11,7 +11,7 @@ import Moya
 
 final class API {
 
-    // * For testing purposes providers are defined as statics
+    // * For testing purposes, providers are defined as statics
     // * Not recommended
     // ** We should keep local variables in each view models for provider instead.
 

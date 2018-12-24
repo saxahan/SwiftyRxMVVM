@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
+class RepositoryTableViewCell: BaseTableViewCell, Settable {
 
     typealias Element = Repository
 
@@ -19,6 +19,7 @@ class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
     @IBOutlet weak var avatarWidthConstraint: NSLayoutConstraint!
 
     var bag = DisposeBag()
+
     var isForUserPage: Bool = false {
         didSet {
             userAvatarButton.isHidden = isForUserPage
@@ -26,6 +27,7 @@ class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
             avatarWidthConstraint.constant = isForUserPage ? 0 : 80
         }
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         bag = DisposeBag()
@@ -35,18 +37,11 @@ class RepositoryTableViewCell: UITableViewCell, Identifiable, Settable {
         let owner = element.owner
         userAvatarButton?.imageUrl = owner.avatarUrl
         lblUsername?.text = owner.username
-        
-        // "REPO_DETAILED" = "%@\nFork Count: %@   Issue Count: %@\nFull Name: %@";
-        let repoName = element.name
-        let repoFullname = element.fullName ?? ""
-        let detailedRepoText = String(format: "REPO_DETAILED".localized, repoName, element.forksCount, element.openIssuesCount, repoFullname)
-        let attrRepoText = detailedRepoText.highlightWords(in: repoName, attributes: [[
+
+        let attrRepoText = element.toString.highlightWords(in: element.name, attributes: [[
             .font: UIFont.boldSystemFont(ofSize: 17),
             .foregroundColor: UIColor.black
             ]])
         lblRepo.attributedText = attrRepoText
-    }
-
-    @IBAction func avatarTapped(_ sender: Any) {
     }
 }

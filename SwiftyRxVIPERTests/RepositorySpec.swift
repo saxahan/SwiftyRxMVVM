@@ -17,13 +17,17 @@ class RepositorySpec: QuickSpec {
 
     override func spec() {
         var provider: MoyaProvider<RepositoryService>!
-        var repositoryList: RepositoryList!
         var repository: Repository!
+        var repositoryList: [Repository]!
 
         beforeEach {
             // We should use sampleData.
             // However; if we want to do async, we can use OHHTTPStubs for demonstrating, or waitUntil might be helpful.
             provider = API.repositoryProvider
+        }
+
+        func parseItems(_ data: Response) -> [Repository]? {
+            return try? data.map([Repository].self, atKeyPath: "items")
         }
 
         it("shouldn't has empty items array") {
@@ -35,10 +39,10 @@ class RepositorySpec: QuickSpec {
                     debugPrint(error.localizedDescription)
 
                 case .success(let response):
-                    repositoryList = try? response.map(RepositoryList.self)
+                    repositoryList = parseItems(response)
                 }
 
-                expect(repositoryList.items).notTo(beEmpty())
+                expect(repositoryList).notTo(beEmpty())
             }
         }
 
@@ -51,7 +55,7 @@ class RepositorySpec: QuickSpec {
                     debugPrint(error.localizedDescription)
 
                 case .success(let response):
-                    repositoryList = try? response.map(RepositoryList.self)
+                    repositoryList = parseItems(response)
                 }
 
                 expect(repositoryList).to(beNil())

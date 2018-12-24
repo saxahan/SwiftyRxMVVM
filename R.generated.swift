@@ -158,18 +158,51 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
     struct localizable {
-      /// en translation: %@ Fork Count: %d   Issue Count: %d Full Name: %@
+      /// en translation: %@ -Fork Count: %d -Issue Count: %d -Full Name: %@
       /// 
       /// Locales: en
       static let repo_DETAILED = Rswift.StringResource(key: "REPO_DETAILED", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: API rate limit exceeded
+      /// 
+      /// Locales: en
+      static let service_LIMIT_REACHED = Rswift.StringResource(key: "SERVICE_LIMIT_REACHED", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: No internet connection
+      /// 
+      /// Locales: en
+      static let service_NETWORK_ERROR = Rswift.StringResource(key: "SERVICE_NETWORK_ERROR", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Service is offline
+      /// 
+      /// Locales: en
+      static let service_OFFLINE = Rswift.StringResource(key: "SERVICE_OFFLINE", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       
-      /// en translation: %@ Fork Count: %d   Issue Count: %d Full Name: %@
+      /// en translation: %@ -Fork Count: %d -Issue Count: %d -Full Name: %@
       /// 
       /// Locales: en
       static func repo_DETAILED(_ value1: String, _ value2: Int, _ value3: Int, _ value4: String) -> String {
         return String(format: NSLocalizedString("REPO_DETAILED", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1, value2, value3, value4)
+      }
+      
+      /// en translation: API rate limit exceeded
+      /// 
+      /// Locales: en
+      static func service_LIMIT_REACHED(_: Void = ()) -> String {
+        return NSLocalizedString("SERVICE_LIMIT_REACHED", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: No internet connection
+      /// 
+      /// Locales: en
+      static func service_NETWORK_ERROR(_: Void = ()) -> String {
+        return NSLocalizedString("SERVICE_NETWORK_ERROR", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Service is offline
+      /// 
+      /// Locales: en
+      static func service_OFFLINE(_: Void = ()) -> String {
+        return NSLocalizedString("SERVICE_OFFLINE", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -248,7 +281,12 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Repository"
+      let repositoryDetailViewController = StoryboardViewControllerResource<RepositoryDetailViewController>(identifier: "RepositoryDetailViewController")
       let repositoryListViewController = StoryboardViewControllerResource<RepositoryListViewController>(identifier: "RepositoryListViewController")
+      
+      func repositoryDetailViewController(_: Void = ()) -> RepositoryDetailViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: repositoryDetailViewController)
+      }
       
       func repositoryListViewController(_: Void = ()) -> RepositoryListViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: repositoryListViewController)
@@ -257,6 +295,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, *) {
         }
+        if _R.storyboard.repository().repositoryDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'repositoryDetailViewController' could not be loaded from storyboard 'Repository' as 'RepositoryDetailViewController'.") }
         if _R.storyboard.repository().repositoryListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'repositoryListViewController' could not be loaded from storyboard 'Repository' as 'RepositoryListViewController'.") }
       }
       
