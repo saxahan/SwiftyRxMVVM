@@ -106,8 +106,6 @@
 		B6D4ABF421D0DF4900E44497 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D4ABF321D0DF4900E44497 /* BaseTableViewCell.swift */; };
 		B6D4ABF521D0DF4900E44497 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D4ABF321D0DF4900E44497 /* BaseTableViewCell.swift */; };
 		B6F3B60621CC25CC000AB968 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B60521CC25CC000AB968 /* UserSpec.swift */; };
-		B6F3B61121CC322F000AB968 /* TitlableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61021CC322F000AB968 /* TitlableView.swift */; };
-		B6F3B61221CC322F000AB968 /* TitlableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61021CC322F000AB968 /* TitlableView.swift */; };
 		B6F3B61421CC329B000AB968 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61321CC329B000AB968 /* Identifiable.swift */; };
 		B6F3B61521CC329B000AB968 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F3B61321CC329B000AB968 /* Identifiable.swift */; };
 /* End PBXBuildFile section */
@@ -183,7 +181,6 @@
 		B6D4ABF021D0BB1100E44497 /* Modelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelable.swift; sourceTree = "<group>"; };
 		B6D4ABF321D0DF4900E44497 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B6F3B60521CC25CC000AB968 /* UserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
-		B6F3B61021CC322F000AB968 /* TitlableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlableView.swift; sourceTree = "<group>"; };
 		B6F3B61321CC329B000AB968 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		D6A7D34E176EE1BC5685DEB8 /* libPods-SwiftyRxVIPER.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftyRxVIPER.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D0CBE5139AB9E9ECF7428C /* Pods-SwiftyRxVIPERTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyRxVIPERTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyRxVIPERTests/Pods-SwiftyRxVIPERTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -470,7 +467,6 @@
 				B6D4ABF021D0BB1100E44497 /* Modelable.swift */,
 				B64818CE21CE9DFD00BA82C4 /* MVVMComposer.swift */,
 				B6C4D9EC21CCCEF000A6BE90 /* Settable.swift */,
-				B6F3B61021CC322F000AB968 /* TitlableView.swift */,
 				B64818AE21CE260500BA82C4 /* View */,
 			);
 			path = Common;
@@ -851,7 +847,6 @@
 				B6A8803921D00E6C0054E441 /* UserTableViewCell.swift in Sources */,
 				B64818B321CE336600BA82C4 /* UIScrollView+.swift in Sources */,
 				B64818CF21CE9DFD00BA82C4 /* MVVMComposer.swift in Sources */,
-				B6F3B61121CC322F000AB968 /* TitlableView.swift in Sources */,
 				B6C4D9ED21CCCEF000A6BE90 /* Settable.swift in Sources */,
 				B6D4ABF421D0DF4900E44497 /* BaseTableViewCell.swift in Sources */,
 				B6D4ABF121D0BB1100E44497 /* Modelable.swift in Sources */,
@@ -900,7 +895,6 @@
 				B6A8803A21D00E6C0054E441 /* UserTableViewCell.swift in Sources */,
 				B64818B421CE336600BA82C4 /* UIScrollView+.swift in Sources */,
 				B64818D021CE9DFD00BA82C4 /* MVVMComposer.swift in Sources */,
-				B6F3B61221CC322F000AB968 /* TitlableView.swift in Sources */,
 				B6C4D9EE21CCCEF000A6BE90 /* Settable.swift in Sources */,
 				B6D4ABF521D0DF4900E44497 /* BaseTableViewCell.swift in Sources */,
 				B6D4ABF221D0BB1100E44497 /* Modelable.swift in Sources */,

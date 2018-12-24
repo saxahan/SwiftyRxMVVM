@@ -15,6 +15,7 @@ import RxDataSources
  * This view model should extend `SearchPaginationViewModel`; but I like to show different way because no searching needs.
  * There can be created more generic class in order to handle such cases.
  * In this view model, which handles UserDetailViewController view class by observable variables & subjects.
+ * I didn't like RxDataSources but I had to give it a try anyway.
  */
 
 class UserDetailViewModel: BaseViewModel<User, UserService> {
@@ -45,7 +46,9 @@ class UserDetailViewModel: BaseViewModel<User, UserService> {
                     return Observable.empty()
                 } else {
                     return Observable<Int>.create { observer in
-                        observer.onNext(1)
+                        self.page = 1
+                        self.allPageLoaded = false
+                        observer.onNext(self.page)
                         observer.onCompleted()
                         return Disposables.create()
                     }
