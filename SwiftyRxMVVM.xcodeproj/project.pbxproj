@@ -52,10 +52,8 @@
 		B6533FEF21CBAF2600463799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6533FED21CBAF2600463799 /* User.swift */; };
 		B6533FF121CBB3EB00463799 /* RepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6533FF021CBB3EB00463799 /* RepositorySpec.swift */; };
 		B67F1BA021C93C04002A7538 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67F1B9F21C93C04002A7538 /* AppDelegate.swift */; };
-		B67F1BA221C93C04002A7538 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67F1BA121C93C04002A7538 /* ViewController.swift */; };
 		B67F1BA721C93C06002A7538 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67F1BA621C93C06002A7538 /* Assets.xcassets */; };
 		B67F1BAA21C93C06002A7538 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67F1BA821C93C06002A7538 /* LaunchScreen.storyboard */; };
-		B6844F1121CAC968007472E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67F1BA121C93C04002A7538 /* ViewController.swift */; };
 		B6844F1421CAC968007472E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67F1B9F21C93C04002A7538 /* AppDelegate.swift */; };
 		B6844F1621CAC968007472E7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62097FE21CA761D00985C6A /* UserService.swift */; };
 		B6844F1721CAC968007472E7 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62097FC21CA6E8F00985C6A /* RepositoryService.swift */; };
@@ -148,7 +146,6 @@
 		B6533FF021CBB3EB00463799 /* RepositorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySpec.swift; sourceTree = "<group>"; };
 		B67F1B9C21C93C04002A7538 /* SwiftyRxMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyRxMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F1B9F21C93C04002A7538 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B67F1BA121C93C04002A7538 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B67F1BA621C93C06002A7538 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B67F1BA921C93C06002A7538 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B67F1BAB21C93C06002A7538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -399,7 +396,6 @@
 				B62097E921CA5A8700985C6A /* Networking */,
 				B62097E521CA54D300985C6A /* Resources */,
 				B67F1B9F21C93C04002A7538 /* AppDelegate.swift */,
-				B67F1BA121C93C04002A7538 /* ViewController.swift */,
 			);
 			path = SwiftyRxMVVM;
 			sourceTree = "<group>";
@@ -749,7 +745,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -823,7 +819,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B67F1BA221C93C04002A7538 /* ViewController.swift in Sources */,
 				B6844F2921CAD02B007472E7 /* AppConfig.swift in Sources */,
 				B64818D221CEA3AF00BA82C4 /* RepositoryListViewModel.swift in Sources */,
 				B6533FE821CBAB4700463799 /* Repository.swift in Sources */,
@@ -871,7 +866,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6844F1121CAC968007472E7 /* ViewController.swift in Sources */,
 				B6844F2A21CAD02B007472E7 /* AppConfig.swift in Sources */,
 				B64818D321CEA3AF00BA82C4 /* RepositoryListViewModel.swift in Sources */,
 				B6533FE921CBAB4700463799 /* Repository.swift in Sources */,
