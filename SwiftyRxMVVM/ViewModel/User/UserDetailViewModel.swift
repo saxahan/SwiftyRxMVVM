@@ -58,7 +58,7 @@ class UserDetailViewModel: BaseViewModel<User, UserService> {
         let nextPageRequest = loading.asObservable()
             .sample(loadNextPageTrigger)
             .flatMap { [unowned self] loading -> Observable<Int> in
-                if loading {
+                if loading || self.allPageLoaded {
                     return Observable.empty()
                 } else {
                     return Observable<Int>.create { [unowned self] observer in
